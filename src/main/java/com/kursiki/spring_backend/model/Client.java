@@ -1,17 +1,36 @@
 package com.kursiki.spring_backend.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "clients")
 public class Client {
 
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "phone")
     private String phone;
 
-    public Integer getId() {
+    public Client() {
+    }
+
+    public Client(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
